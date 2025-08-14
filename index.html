@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador de Podologia: Unha Encravada — V2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Simulador de Podologia: Unha Encravada — V2</h1>
+    <p class="subtitle">Texturas, níveis e sons. Protótipo educacional.</p>
+  </header>
+
+  <main>
+    <section class="left">
+      <canvas id="game" width="1200" height="720"></canvas>
+      <div class="hud">
+        <div class="meter">
+          <label>Dor</label>
+          <div class="bar"><div id="painBar"></div></div>
+        </div>
+        <div class="meter">
+          <label>Infecção</label>
+          <div class="bar"><div id="infectionBar"></div></div>
+        </div>
+        <div class="meter">
+          <label>Higiene</label>
+          <div class="bar"><div id="hygieneBar"></div></div>
+        </div>
+        <div class="meter">
+          <label>Precisão</label>
+          <div class="bar"><div id="precisionBar"></div></div>
+        </div>
+        <div class="tips" id="tipBox">Escolha um caso para começar.</div>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="casebox">
+        <h2>Casos</h2>
+        <select id="caseSelect"></select>
+        <button id="startCase">Iniciar Caso</button>
+      </div>
+
+      <div class="tools">
+        <h2>Instrumentos</h2>
+        <button class="tool" data-tool="antiseptic">🧴 Antisséptico</button>
+        <button class="tool" data-tool="lifter">🗜️ Espátula</button>
+        <button class="tool" data-tool="nipper">✂️ Alicate</button>
+        <button class="tool" data-tool="cotton">🧼 Algodão</button>
+        <button class="tool" data-tool="bandage">🩹 Curativo</button>
+      </div>
+
+      <div class="objectives">
+        <h2>Objetivos</h2>
+        <ol id="goals">
+          <li data-goal="clean">Higienizar a área (≥ 80%).</li>
+          <li data-goal="lift">Elevar a borda lateral.</li>
+          <li data-goal="cut">Cortar a espícula com precisão.</li>
+          <li data-goal="cotton">Inserir rolinho de algodão.</li>
+          <li data-goal="bandage">Aplicar curativo.</li>
+        </ol>
+      </div>
+
+      <div class="help">
+        <h2>Controles</h2>
+        <ul>
+          <li>Selecione um caso e clique em <b>Iniciar Caso</b>.</li>
+          <li>Use o instrumento selecionado no local correto (clique/arraste).</li>
+          <li>Movimentos delicados e higiene alta reduzem dor/infecção.</li>
+        </ul>
+        <button id="reset">Reiniciar</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="reportOverlay" class="overlay hidden">
+    <div class="panel">
+      <h2>Relatório do Procedimento</h2>
+      <div id="reportContent"></div>
+      <div class="actions">
+        <button id="closeReport">Fechar</button>
+        <button id="nextCase">Próximo Caso</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
